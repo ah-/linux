@@ -18,7 +18,9 @@ allOf:
 
 properties:
   compatible:
-    const: apple,t8103-fpwm
+    enum:
+      - apple,t8103-fpwm
+      - apple,t6000-fpwm
 
   reg:
     maxItems: 1
@@ -27,7 +29,7 @@ properties:
     maxItems: 1
 
   "#pwm-cells":
-    const: 0
+    const: 2
 
 additionalProperties: false
 
@@ -41,5 +43,5 @@ examples:
         compatible = "apple,t8103-fpwm";
         reg = <0x35044000 0x4000>;
         clocks = <&fpwm0_clk>;
-        #pwm-cells = <0>;
+        #pwm-cells = <2>;
     };
